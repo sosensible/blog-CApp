@@ -1,22 +1,26 @@
+import capp_config from "../capp.config"
+
 const Module = () => import("../Module.vue");
 const NewsHome = () => import("../views/HomeView.vue");
 const MainAdmin = () => import("@/views/admin/MainAdminView.vue");
 const NewsAdmin = () => import("../views/admin/AdminView.vue");
 const Post = () => import("../views/PostView.vue");
 
+const capp_name = capp_config.app.path;
+
 const moduleRoutes = {
-  path: "/blog",
+  path: "/" + capp_name,
   component: Module,
   children: [
     {
       path: "/",
-      name: "blog.home",
+      name: capp_name + ".home",
       component: NewsHome
     },
 
     {
       path: ":id",
-      name: "blog.post",
+      name: capp_name + ".post",
       component: Post
     },
     {
@@ -25,7 +29,7 @@ const moduleRoutes = {
       children: [
         {
           path: "/",
-          name: "admin.blog.main",
+          name: "admin." + capp_name + ".main",
           component: NewsAdmin
         }
       ]
