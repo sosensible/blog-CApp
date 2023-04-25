@@ -1,7 +1,6 @@
 export default {
-  app: {
-    name: 'Blog',
-    shortName: 'Blog',
+  capp: {
+    name: 'blog',
     path: 'blog',
   }
 }
